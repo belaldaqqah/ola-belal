@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for
 import dataset
-
+import time
 app = Flask(__name__)
 db =  dataset.connect('postgres://aotvgbebjecnxl:8592d2ec4231cbe4641ec6c452a51dc41e0beef794b2fa4c42515fc4b4e93f1a@ec2-184-73-199-72.compute-1.amazonaws.com:5432/d46l183jamtfom')
 
@@ -35,8 +35,22 @@ def listt():
 	allUsers = list(UsersTable.all())
 	print allUsers
 	return render_template('list.html' , users= allUsers)
+@app.route('/feed', methods=["GET","POST"])
+def newsfeed():
+	feedTable=db["feed"]
+	if request.method == "GET":
+		return render_template("feed.html")
+	else:
+		username = request.form["username"]
+		post= request.form["post"]
+		time = strftime("%Y-%m-%d %H:%M:%S", localtime())
+		entry = {"post":post,"username": username, "time":time}
+		feedTable.insert(entry)
+		return render_template('feed.html',post= post, username=username,time= time)
 
-# TODO: route to /feed
+
+
+
 
 # TODO: route to /register
 

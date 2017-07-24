@@ -4,6 +4,22 @@
 
 <h1>Feed Page</h1>
 
-<!-- TODO: implement feed page -->
+<form  class= "tit" action= "/feed" method="GET">
+	Username: <br>
+	<input type ="text" name= "username"> <br>
+	
+	Post:<br>
+	<textarea rows="6" cols="50" name="post"></textarea>
+	<br> 
+
+
+	<input type ="submit" value= "submit"> 
+</form>
+{% for post in feedTable %}
+<p> {{post.username}}</p>
+<p> {{post.post}} </p>
+<p> {{post.time}} </p>
+
+{% endfor %}
 
 {% endblock %}
