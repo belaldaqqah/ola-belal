@@ -21,8 +21,11 @@ def register():
 		results = list(UsersTable.find(username = nameTocheck))
 		if len(results) == 0:
 			UsersTable.insert(entry)
-			return redirect ("/home")
-		return render_template('home.html', first_name=first_name , last_name=last_name , 
+
+			return redirect ("/list")
+		else: 
+			taken=1
+			return render_template('home.html', first_name=first_name , last_name=last_name , 
 			email=email, username=username, hometown=hometown, personal_website=personal_website)
 
 @app.route('/home')
@@ -35,6 +38,7 @@ def listt():
 	allUsers = list(UsersTable.all())
 	print allUsers
 	return render_template('list.html' , users= allUsers)
+
 @app.route('/feed', methods=["GET","POST"])
 def newsfeed():
 	feedTable=db["feed"]
@@ -43,10 +47,11 @@ def newsfeed():
 	else:
 		username = request.form["username"]
 		post= request.form["post"]
-		time = strftime("%Y-%m-%d %H:%M:%S", localtime())
+		time_string = strftime("%Y-%m-%d %H:%M:%S", localtime())
 		entry = {"post":post,"username": username, "time":time}
 		feedTable.insert(entry)
-		return render_template('feed.html',post= post, username=username,time= time)
+		allposts = list(posts.all())
+		return render_template('feed.html',post= post, username=username,time_string= time_string)
 
 
 
