@@ -17,7 +17,6 @@ def register():
 		hometown = request.form["hometown"]
 		personal_website = request.form['personal_website']
 		entry = {"first_name":first_name ,"last_name":last_name, "email":email, "username":username, "hometown":hometown}
-		
 		nameTocheck = username
 		results = list(UsersTable.find(username = nameTocheck))
 		if len(results) == 0:
@@ -40,6 +39,12 @@ def listt():
 	allUsers = list(UsersTable.all())
 	print allUsers
 	return render_template('list.html' , users= allUsers)
+
+@app.route('/feed')
+def newsfeed():
+	return render_template('feed.html')
+
+
 
 
 

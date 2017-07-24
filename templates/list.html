@@ -3,7 +3,7 @@
 
 <h1> Usernames assigned to this website</h1>
 h1>List Page</h1>
-<table class="container">
+<table>
   <tr>
     <th class ="thd">first name</th>
     <th class="thd">last name</th>
@@ -12,14 +12,14 @@ h1>List Page</h1>
     <th class="thd">email</th>
     <th class="thd">personal website link</th>
   </tr>
-  {% for person in contacts %}
+  {% for person in users %}
   <tr>
-    <td class ="thd">{{person.firstname}}</td>
-    <td class ="thd">{{person.lastname}}</td>
+    <td class ="thd">{{person.first_name}}</td>
+    <td class ="thd">{{person.last_name}}</td>
     <td class ="thd">{{person.username}}</td>
     <td class ="thd">{{person.hometown}}</td>
     <td class ="thd">{{person.email}}</td>
-    <td class ="thd">{{person.personalwebsitelink}}</td>
+    <td class ="thd">{{person.personal_website}}</td>
 
   </tr>
   {% endfor %}
