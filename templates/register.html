@@ -1,7 +1,21 @@
 {% extends "base.html" %}
-
 {% block body %}
+
 <h1>Register Page</h1>
+
+	<title>Text Input Control</title>
+		
+		<form method="POST" action="/register" enctype="multipart/form-data">
+			First name:  <br><input type="text" name="first_name" placeholder="First Name" required>
+			<br>
+			Last name:  <br><input type="text" name="last_name" placeholder="Last Name" required><br>
+			Username: <br><input type ="text" name ="username" placeholder="Username" required ><br>
+			Email: <br><input type="email" name="email" pattern="[^ @]*@[^ @]*" placeholder="Enter your E-mail" required><br>
+			Hometown: <br><input type="text" name="hometown" placeholder="Where do you live?" required><br>
+			Personal website link: <br><input type="text" name="personal_website" placeholder="Personal website link" required><br>
+			<input type="submit" value="Login">
+		</form>
+
 
 <!-- TODO: implement register page -->
 
