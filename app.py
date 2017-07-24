@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, session 
 import dataset
 
 app = Flask(__name__)
@@ -17,13 +17,18 @@ def register():
 		hometown = request.form["hometown"]
 		personal_website = request.form['personal_website']
 		entry = {"first_name":first_name ,"last_name":last_name, "email":email, "username":username, "hometown":hometown}
+		
 		nameTocheck = username
 		results = list(UsersTable.find(username = nameTocheck))
 		if len(results) == 0:
+			taken=0
 			UsersTable.insert(entry)
-			return redirect ("/home")
-		return render_template('home.html', first_name=first_name , last_name=last_name , 
-			email=email, username=username, hometown=hometown, personal_website=personal_website)
+			return redirect ("/list")
+		else:
+			taken=1
+			
+			return render_template('home.html', first_name=first_name , last_name=last_name , 
+			email=email, username=username, hometown=hometown, personal_website=personal_website, taken = taken)
 
 @app.route('/home')
 def homepage():
@@ -35,6 +40,8 @@ def listt():
 	allUsers = list(UsersTable.all())
 	print allUsers
 	return render_template('list.html' , users= allUsers)
+
+
 
 # TODO: route to /feed
 
