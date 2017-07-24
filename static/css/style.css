@@ -35,6 +35,12 @@ li a:hover {
 
 }
 
+#navbar { 
+height:70%;
+
+
+}
+
 
 #fixedfooter {
   position:fixed;
