@@ -4,7 +4,7 @@
 
 <h1>Feed Page</h1>
 
-<form  class= "tit" action= "/feed" method="GET">
+<form  class= "tit" action= "/feed" method="POST">
 	Username: <br>
 	<input type ="text" name= "username"> <br>
 	
@@ -15,11 +15,15 @@
 
 	<input type ="submit" value= "submit"> 
 </form>
-{% for post in feed %}
-<p> {{post.username}}</p>
-<p> {{post.post}} </p>
-<p> {{post.time_string}} </p>
 
+
+
+{% for post in allposts %}
+<div class="fixed">
+<p><i><strong> {{post.username}}</strong></i></p>
+<p> {{post.post}} </p>
+<p> {{post.time}} </p>
+</div>
 {% endfor %}
 
 {% endblock %}

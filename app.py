@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, session 
 import dataset
-import time
+from time import localtime, strftime
 app = Flask(__name__)
 db =  dataset.connect('postgres://aotvgbebjecnxl:8592d2ec4231cbe4641ec6c452a51dc41e0beef794b2fa4c42515fc4b4e93f1a@ec2-184-73-199-72.compute-1.amazonaws.com:5432/d46l183jamtfom')
 
@@ -16,7 +16,7 @@ def register():
 		username = request.form["username"]
 		hometown = request.form["hometown"]
 		personal_website = request.form['personal_website']
-		entry = {"first_name":first_name ,"last_name":last_name, "email":email, "username":username, "hometown":hometown}
+		entry = {"first_name":first_name ,"last_name":last_name, "email":email, "username":username, "hometown":hometown, "personal_website":personal_website}
 		nameTocheck = username
 		results = list(UsersTable.find(username = nameTocheck))
 		if len(results) == 0:
@@ -45,15 +45,16 @@ def listt():
 def newsfeed():
 	feedTable=db["feed"]
 	if request.method == "GET":
-		return render_template("feed.html")
+		allposts = list(feedTable.all())
+		return render_template("feed.html" ,allposts=allposts)
 	else:
 		username = request.form["username"]
 		post= request.form["post"]
-		time_string = strftime("%Y-%m-%d %H:%M:%S", localtime())
+		time = strftime("%Y-%m-%d %H:%M:%S", localtime())
 		entry = {"post":post,"username": username, "time":time}
 		feedTable.insert(entry)
-		allposts = list(posts.all())
-		return render_template('feed.html',post= post, username=username,time_string= time_string)
+		allposts = list(feedTable.all())
+		return render_template('feed.html',post= post, username=username , allposts=allposts)
 
 # TODO: route to /register
 
