@@ -2,16 +2,9 @@
 
 {% block body %}
 
-
-
 <h1>Home Page</h1>
-{%if "username" in session %}
+<h2><a href="" id="loginform">Login</a> | <a href="#">Register</a></h2>
 
-<h1> logged in as {{username}}</h1>
-
-
-
-{% endif %}
 
 
 <!-- TODO: implement home page. -->
