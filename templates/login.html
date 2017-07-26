@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+<h1>Home Page</h1>
+<h2><a href="/login">Login</a> | <a href="/register">Register</a></h2>
+
+<form method="POST" action="/login">
+             Username: <br>
+			<input type ="text" name ="username" placeholder="Username" required ><br>
+             Password:<br>
+			<input type="password" name="password" placeholder=" password" required><br>
+             <input type="submit" value="Login" />
+ </form>
+
+
+
+<!-- TODO: implement home page. -->
+
+{% endblock %}

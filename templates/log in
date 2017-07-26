@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+<h1>Home Page</h1>
+<h2><a href="" id="loginform">Login</a> | <a href="#">Register</a></h2>
+
+
+
+<!-- TODO: implement home page. -->
+
+{% endblock %}

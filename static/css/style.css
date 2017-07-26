@@ -1,10 +1,11 @@
 
 ul {
   list-style-type: none;
-  margin: 0;
+  margin-top: 7%;
   padding: 0;
   overflow: hidden;
-  background-color: #333333;
+  background-color: #8AB270;
+  z-index: -10000;
 }
 
 li {
@@ -33,7 +34,7 @@ li a:hover {
   color: #8AB270;
   background:  #8AB270;
   padding:5px;
-  z-index: 100000;
+  z-index: -1000;
 
 }
 
@@ -47,9 +48,27 @@ li a:hover {
 
   background-color:#8AB270;
   padding:8px;
-  text-align: center;
+  text-align: center;}
+
+#textbox {
+    background-color: white;
+    height: 60px;
+    width:500px;
+    position: absolute;
+    margin-left: 750px;
+    margin-top: 12%;
 
 }
+
+.fixed {
+  text-align: center;
+  background-color: lightgrey;
+  width: 300px;
+  border: 25px solid green;
+  padding: 25px;
+  margin: 25px;
+  }
+
 .box {
     color:gold;
   font-size:300%;

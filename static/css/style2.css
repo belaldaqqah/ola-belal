@@ -12,10 +12,12 @@ body {
 
 form {
   max-width: 300px;
-  margin: 10px auto;
+  margin: 150px auto;
   padding: 10px 20px;
   background: #f4f7f8;
   border-radius: 8px;
+  overflow-y: scroll;
+  height: 500px;
 }
 
 h1 {

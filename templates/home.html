@@ -10,10 +10,9 @@
 <body>
 
 
-<div class="w3-content" style="max-width:1200px; position: absolue; top:20%">
-  <img class="mySlides" src="../static/images/pic1.png" style="width:50%; height:50%">
-  <img class="mySlides" src="../static/images/rsz_1rsz_pic2.jpg" style="width:50% ; height:50%">
-  <img class="mySlides" src="../static/images/pic3.jpg" style="width:50%;  height:50%">
+<div class="w3-content" style="max-width:1200px; position: absolute; top:25%">
+  <img class="mySlides" src="../static/images/pic1.png">
+  <img class="mySlides" src="../static/images/rsz_1rsz_pic2.jpg">
 </div>
 
 <script>
@@ -32,10 +31,33 @@ function carousel() {
     setTimeout(carousel, 2000); // Change image every 2 seconds
 }
 </script>
-<h1 style="position: absolute; left: 750px; top: 160px">Home Page</h1>
 
 
-</body>
+<div id="textbox">
+<h1 style="position: absolute; left: 750px; top: 160px; color: #8AB270">About us</h1>
+</div>
+
+  <p style="position: absolute; left: 750px; top: 230px; color: white; text-align: justify; margin-right:50px"> 
+    Code for Palestine is a three year-long program, beginning the summer before 10th grade and concluding after 12th grade. Each year has many in-person sessions but is kicked off by a two-week camp held during the summer. Volunteer undergraduate instructors from Stanford University have served as the primary teachers during the two-week summer camp. 
+  </p>
+
+
+  <img src="../static/images/line2.png" style=" position:absolute; left: 850px; bottom: 200px">
+
+<h2 style="position: absolute; left: 750px; top: 160px; color: #8AB270">What is Code for Palestine for?</h1>
+
+  <p style="position: absolute; left: 0px; top: 70%; color: white">
+    Code for Palestine was born in 2015 out of a desire to teach coding and entrepreneurial skills to some of the brightest high school students throughout the West Bank and Gaza Strip. The organization funding the initiative, the PalTel Group Foundation [PGF], recognized that there weren't enough students graduating from Palestinian universities in STEM fields. PGF saw an opportunity for a tech-driven startup scene to help tackle some of Palestine's problems, and realized that a culture of entrepreneurship needed to be bred in order for a startup culture to blossom. 
+  </p>
+
+{%if "username" in session %}
+
+<h1> logged in as {{username}}</h1>
+
+
+
+{% endif %}
+
 
 <!-- TODO: implement home page. -->
 
