@@ -3,54 +3,38 @@
 
 <head>
   <link rel="stylesheet" type="text/css" href="../static/css/style.css" />
+  {% block style %}
   <title>WeCode Portal</title> 
-<<<<<<< HEAD
-  <ul>
-    <li><a href="home">Home</a></li>
-    
-<!-- TODO: add more links on the navigation bar here -->
-  </ul>
-=======
+  
+  {% endblock %}
+  
 
->>>>>>> 94788188b6b021b2d0c0995c9c9c922fac635ce7
+
 </head>
+ 
 
 	<div id="fixedheader"> 
-		<p class="box">
-				<font face="Titillium Web" color="white" >
-					<i><strong>
-						WeCode
-					</i></strong>
-				</font>
-		</p>
-		  <ul>
-    <li id="navbar"><a href="home">Home</a></li>
-<!-- TODO: add more links on the navigation bar here -->
-  </ul>
+		<img src="../static/images/logo2.gif" style="height: 90%; width: 55%; position:absolute; margin-left: 18%">
 	</div>
+
 
 <body background="../static/images/background.jpg">
 
 
 {% block body %}
-<h1>My home page</h1>
 
+	 
 <p>My first paragraph.</p>
+
+
+
 {% endblock%}
 
 
 
 		<div id="fixedfooter">
-        	<p>
-  				<font face="Courier New" color="gold">
-				</font>
-			</p>
-			<p>
-			 	<font face="Courier New" color="white" >
-				</font>
-			</p>
 
-
+		</div>
 
 </body>
 </html>

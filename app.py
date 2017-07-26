@@ -16,7 +16,8 @@ def register():
 		username = request.form["username"]
 		hometown = request.form["hometown"]
 		personal_website = request.form['personal_website']
-		entry = {"first_name":first_name ,"last_name":last_name, "email":email, "username":username, "hometown":hometown}
+		profilepic=request.form["profilepic"]
+		entry = {"first_name":first_name ,"last_name":last_name, "email":email, "username":username, "hometown":hometown, "profilepic":profilepic}
 		nameTocheck = username
 		results = list(UsersTable.find(username = nameTocheck))
 		if len(results) == 0:
@@ -27,7 +28,8 @@ def register():
 			taken=1
 			
 			return render_template('home.html', first_name=first_name , last_name=last_name , 
-			email=email, username=username, hometown=hometown, personal_website=personal_website, taken = taken)
+			email=email, username=username, hometown=hometown, personal_website=personal_website,
+			taken = taken, profilepic=profilepic)
 
 @app.route('/home')
 def homepage():
@@ -60,7 +62,7 @@ def newsfeed():
 # TODO: route to /error
 
 if __name__ == "__main__":
-    app.run(port=3000)
+    app.run(port=2000)
 
 
 
