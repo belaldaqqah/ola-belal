@@ -20,6 +20,7 @@
     <li><a href="home">Home</a></li>
     <li><a href="feed">Newsfeed</a></li>
     <li><a href="list">List of Students</a></li>
+
     {% if "username" in session %}
 
       <li style="position:absolute; margin-left: 45%">
@@ -28,7 +29,9 @@
       </i> </strong>
      </a>
     </li>
-  {% endif %}
+   
+    {% endif %}
+
     {% if "username" in session %}
     <li style="float:right;"><a href="logout">Log out</a></li>
     {% else %}

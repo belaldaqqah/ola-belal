@@ -48,8 +48,8 @@ li a:hover {
 
   background-color:#8AB270;
   padding:8px;
-  text-align: center;}
-
+  text-align: center;
+  z-index: 1000;}
 #textbox {
     background-color: white;
     height: 60px;

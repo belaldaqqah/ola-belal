@@ -29,9 +29,7 @@ def register():
 		else:
 			taken=1
 			
-			return render_template('home.html', first_name=first_name , last_name=last_name , 
-			email=email, username=username, hometown=hometown, personal_website=personal_website, password=password, taken=taken)
-
+			return render_template("error.html")
 @app.route('/home')
 def homepage():
 	
@@ -40,6 +38,11 @@ def homepage():
 		return render_template ("home.html", username=username)
 	else:
 		return render_template('home.html')  
+
+@app.route('/')
+def homie():
+	return render_template("home.html")
+
 	
 	
 
@@ -48,39 +51,40 @@ def homepage():
 def listt():
 	
 	if "username" in session:
+		username = session["username"]
 		UsersTable = db["users"]
-		allUsers = list(UsersTable.all())
+		allUsers = list(UsersTable.all())[::-1]
 		print allUsers
-		return render_template('list.html' , users= allUsers)
+		return render_template('list.html' , users= allUsers, username= username)
 	else:
 		return redirect("/error")
 
 
+
+
 @app.route('/feed', methods=["GET","POST"])
 def newsfeed():
-	feedTable=db["feed"]
-	allposts = list(feedTable.all())[::-1]
-	if request.method == "GET":
-		return render_template("feed.html" ,allposts=allposts)
-	else:
-		UsersTable = db["users"]
+	if "username" in session:
 		username = session["username"]
-		post= request.form["post"]
-		time = strftime("%Y-%m-%d %H:%M:%S", localtime())
-		entry = {"post":post,"username": username, "time":time}
-		nameTocheck = username
-		results = list(UsersTable.find(username = nameTocheck))		
-
-	if len(results) == 1:
-		taken=1
-		feedTable.insert(entry)
+		feedTable=db["feed"]
 		allposts = list(feedTable.all())[::-1]
-		return render_template('feed.html',post= post, username=username , allposts=allposts)
+		if request.method == "GET":
+			return render_template("feed.html" ,allposts=allposts, username=username)
+		else:
+			UsersTable = db["users"]
+			username = session["username"]
+			post= request.form["post"]
+			time = strftime("%Y-%m-%d %H:%M:%S", localtime())
+			entry = {"post":post,"username": username, "time":time}
+			feedTable.insert(entry)
+			allposts = list(feedTable.all())[::-1]
+			return render_template('feed.html',post= post, username=username , allposts=allposts)
 	else: 
 		taken=0
-		return render_template("error.html")
+	return render_template("error.html")
 @app.route("/login", methods=["GET","POST"])
 def login():
+
 	
     if request.method == "GET":
         return render_template ("login.html")
