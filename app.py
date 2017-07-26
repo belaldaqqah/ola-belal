@@ -17,7 +17,6 @@ def register():
 		username = request.form["username"]
 		hometown = request.form["hometown"]
 		personal_website = request.form['personal_website']
-
 		password= request.form["password"]
 		entry = {"first_name":first_name ,"last_name":last_name, "email":email, "username":username, "hometown":hometown, "personal_website":personal_website, "password": password}
 		nameTocheck = username
@@ -31,7 +30,7 @@ def register():
 			taken=1
 			
 			return render_template('home.html', first_name=first_name , last_name=last_name , 
-			email=email, username=username, hometown=hometown, personal_website=personal_website,   taken = taken, )
+			email=email, username=username, hometown=hometown, personal_website=personal_website, password=password, taken=taken)
 
 @app.route('/home')
 def homepage():
@@ -60,12 +59,12 @@ def listt():
 @app.route('/feed', methods=["GET","POST"])
 def newsfeed():
 	feedTable=db["feed"]
-	allposts = list(feedTable.all())
+	allposts = list(feedTable.all())[::-1]
 	if request.method == "GET":
 		return render_template("feed.html" ,allposts=allposts)
 	else:
 		UsersTable = db["users"]
-		username = request.form["username"]
+		username = session["username"]
 		post= request.form["post"]
 		time = strftime("%Y-%m-%d %H:%M:%S", localtime())
 		entry = {"post":post,"username": username, "time":time}
@@ -75,7 +74,7 @@ def newsfeed():
 	if len(results) == 1:
 		taken=1
 		feedTable.insert(entry)
-		allposts = list(feedTable.all())
+		allposts = list(feedTable.all())[::-1]
 		return render_template('feed.html',post= post, username=username , allposts=allposts)
 	else: 
 		taken=0

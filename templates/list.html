@@ -1,15 +1,25 @@
 {% extends "base.html" %}
 {% block body %}
+<br>
+<br>
+
+<br>
+
+<br>
+<br>
+<br>
+<br>
+<br>
 
 <h1> Usernames assigned to this website</h1>
 <h1>List Page</h1>
 {% for person in users %}
 
 <div class="container">
-  <img src={{person.profilepic}} alt="Avatar" style="width:90px">
+  <img src="../static/images/icon-16.png" alt="Avatar" style="width:90px; height:200%">
   <p><span>{{person.first_name}}{{person.last_name}} </span> {{person.username}}</p><br>
   <p>Contact with him at his Email: {{person.email}} or his website: {{person.personal_website}} </p><br>
-  <p>{{persoon.user_bio}}</p>
+  <p>{{person.user_bio}}</p>
 </div>
 
 {% endfor %}

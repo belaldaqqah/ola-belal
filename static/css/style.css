@@ -34,7 +34,7 @@ li a:hover {
   color: #8AB270;
   background:  #8AB270;
   padding:5px;
-  z-index: -1000;
+  z-index: 1000;
 
 }
 

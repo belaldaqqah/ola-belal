@@ -14,11 +14,21 @@
  
 
 	<div id="fixedheader"> 
+
 		<img src="../static/images/logo2.gif" style="height: 90%; width: 55%; position:absolute; margin-left: 18%">
   <ul>
     <li><a href="home">Home</a></li>
     <li><a href="feed">Newsfeed</a></li>
     <li><a href="list">List of Students</a></li>
+    {% if "username" in session %}
+
+      <li style="position:absolute; margin-left: 45%">
+      <a href="#"><strong><i>
+       logged in as {{username}}
+      </i> </strong>
+     </a>
+    </li>
+  {% endif %}
     {% if "username" in session %}
     <li style="float:right;"><a href="logout">Log out</a></li>
     {% else %}
@@ -26,6 +36,7 @@
     {% endif %}
     <li style="float:right;"><a href="register">Register</a></li>
   </ul>    
+
 	</div>
 	
 

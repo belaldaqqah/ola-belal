@@ -1,25 +1,36 @@
-{% extends "base.html" %}
 
-{% block body %}
+    {% extends "base.html" %}
+    {% block style %}
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sign Up Form</title>
+        <link rel="stylesheet" href="../static/css/style2.css">
+        <link href='https://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="../static/css/style2.css">
+    {% endblock %}
 
-<h1>Feed Page</h1>
+    {% block body %}
+<br>
 
-<form  class= "tit" action= "/feed" method="POST">
-	Username: <br>
-	<input type ="text" name= "username"> <br>
-	
-	Post:<br>
-	<textarea rows="6" cols="50" name="post"></textarea>
+
+
+<form  class= "tit" action= "/feed" method="POST" style="position:absolute; margin-right:50%">
+	Crete a post <br>
+
+	<textarea rows="6" cols="50" name="post" placeholder="What are you thinking about?"></textarea>
 	<br> 
 
 
 	<input type ="submit" value= "submit"> 
 </form>
 
-
+<br>
+<br>
+<br>
+<br>
 
 {% for post in allposts %}
-<div class="fixed">
+<div class="fixed" style="margin-left:50%">
 <p><i><strong> {{post.username}}</strong></i></p>
 <p> {{post.post}} </p>
 <p> {{post.time}} </p>
