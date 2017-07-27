@@ -82,6 +82,7 @@ def newsfeed():
 	else: 
 		taken=0
 	return render_template("error.html")
+
 @app.route("/login", methods=["GET","POST"])
 def login():
 
@@ -118,6 +119,9 @@ def logout():
 def error():
 	return render_template("error.html")
 
+@app.route("/error2")
+def err2():
+	return render_template("error2.html")
 
 if __name__ == "__main__":
     app.run(port=2000)
