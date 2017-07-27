@@ -29,7 +29,7 @@ def register():
 		else:
 			taken=1
 			
-			return render_template("error.html")
+			return render_template("error2.html")
 @app.route('/home')
 def homepage():
 	
