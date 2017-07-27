@@ -1,7 +1,7 @@
 
 ul {
   list-style-type: none;
-  margin-top: 7%;
+  margin-top: 6%;
   padding: 0;
   overflow: hidden;
   background-color: #8AB270;
@@ -50,16 +50,58 @@ li a:hover {
   padding:8px;
   text-align: center;
   z-index: 1000;}
-#textbox {
-    background-color: white;
-    height: 60px;
-    width:500px;
-    position: absolute;
-    margin-left: 750px;
-    margin-top: 12%;
 
+
+#textbox {
+    width: 500px;
+    height: 300px;
+    background-color: #A5D386;
+    box-shadow: 10px 10px 5px #888888;
+    position: absolute; 
+    margin-left: 730px; 
+    top:23%;
 }
 
+#textbox1 {
+    width: 70%;
+    height: 250px;
+    background-color: #A5D386;
+    box-shadow: 10px 10px 5px #888888;
+    position: absolute; 
+    margin-left: 10%; 
+    margin-right: 10%;
+    top:75%;
+}
+
+#textbox2 {
+    width: 300px;
+    height: 250px;
+    background-color: #A5D386;
+    box-shadow: 10px 10px 5px #888888;
+    position: absolute; 
+    margin-left: 10%; 
+    top:130%;
+}
+
+#textbox3 {
+    width: 300px;
+    height: 250px;
+    background-color: #A5D386;
+    box-shadow: 10px 10px 5px #888888;
+    position: absolute; 
+    margin-left: 40%; 
+    top:130%;
+}
+
+#textbox4 {
+    width: 300px;
+    height: 250px;
+    background-color: #A5D386;
+    box-shadow: 10px 10px 5px #888888;
+    position: absolute; 
+    margin-left: 70%; 
+    top:130%;
+}
 .fixed {
   text-align: center;
   background-color: lightgrey;
@@ -116,6 +158,25 @@ li a:hover {
     display: block;
   }
 }
+
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    margin: auto;
+    text-align: right;
+
+}
+
+.containerr {
+    padding: 0 16px;
+}
+
+.titlee {
+    color: grey;
+    font-size: 18px;
+}
+
 
 
 /* for the register */
